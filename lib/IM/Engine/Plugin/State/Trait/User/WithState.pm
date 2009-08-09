@@ -1,7 +1,7 @@
 package IM::Engine::Plugin::State::Trait::User::WithState;
 use Moose::Role;
 
-has state_plugin => (
+has _state_plugin => (
     is       => 'ro',
     isa      => 'IM::Engine::Plugin::State',
     required => 1,
@@ -16,7 +16,7 @@ for (
     [has_state   => 'has_user_state'],
 ) {
     my ($local, $remote) = @$_;
-    __PACKAGE__->meta->add_method($local => sub { $_[0]->state_plugin(@_) });
+    __PACKAGE__->meta->add_method($local => sub { $_[0]->_state_plugin(@_) });
 }
 
 1;
