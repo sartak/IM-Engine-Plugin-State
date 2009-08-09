@@ -6,7 +6,7 @@ githubmeta;
 
 requires 'MooseX::ABC' => 0.02;
 
-requires 'IM::Engine' => 0.02;
+requires 'IM::Engine' => 0.03;
 
 tests('t/*.t t/*/*.t');
 
