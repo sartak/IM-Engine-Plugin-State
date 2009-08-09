@@ -5,7 +5,12 @@ extends 'IM::Engine::Plugin';
 
 our $VERSION = '0.01';
 
-requires 'get_user_state', 'set_user_state', 'has_user_state', 'clear_user_state';
+requires (
+    'get_user_state',
+    'set_user_state',
+    'clear_user_state',
+    'has_user_state',
+);
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
