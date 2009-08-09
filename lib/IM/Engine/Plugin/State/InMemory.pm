@@ -15,7 +15,7 @@ sub get_user_state {
     my $user = $self->_canonicalize_user(shift);
     my $key  = shift;
 
-    confess "You must provide a key to get_user_state to avoid collisions"
+    confess "You must provide a key to avoid collisions"
         if !defined($key);
 
     return $self->state->{$user}->{$key};
@@ -27,7 +27,7 @@ sub set_user_state {
     my $key  = shift;
     my $new  = shift;
 
-    confess "You must provide a key to set_user_state to avoid collisions"
+    confess "You must provide a key to avoid collisions"
         if !defined($key);
 
     return $self->state->{$user}->{$key} = $new;
@@ -38,7 +38,7 @@ sub has_user_state {
     my $user = $self->_canonicalize_user(shift);
     my $key  = shift;
 
-    confess "You must provide a key to has_user_state to avoid collisions"
+    confess "You must provide a key to avoid collisions"
         if !defined($key);
 
     return exists($self->state->{$user}->{$key});
@@ -49,7 +49,7 @@ sub clear_user_state {
     my $user = $self->_canonicalize_user(shift);
     my $key  = shift;
 
-    confess "You must provide a key to clear_user_state to avoid collisions"
+    confess "You must provide a key to avoid collisions"
         if !defined($key);
 
     return delete($self->state->{$user}->{$key});
