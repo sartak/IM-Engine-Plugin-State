@@ -1,4 +1,5 @@
 package IM::Engine::Plugin::State;
+use 5.008001;
 use Moose;
 use MooseX::ABC;
 extends 'IM::Engine::Plugin';
