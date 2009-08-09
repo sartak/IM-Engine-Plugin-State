@@ -38,6 +38,27 @@ IM::Engine::Plugin::State - Keep track of some state for each user
 
 =head1 SYNOPSIS
 
+    IM::Engine->new(
+        interface => {
+            ...
+            incoming_callback => sub {
+                my $incoming = shift;
+                my $user     = $incoming->sender;
+
+                my $last_time = $user->get_state('last_time');
+                my $now = time;
+                $user->set_state(last_time => $now);
+
+                if ($last_time) {
+                    return $incoming->reply("You last IMed me " . ($now - $last_time) . "s ago.");
+                }
+                else {
+                    return $incoming->reply("Hi, IM me again!");
+                }
+            },
+        },
+        plugins => ['State::InMemory'],
+    )->run;
 
 =head1 DESCRIPTION
 
