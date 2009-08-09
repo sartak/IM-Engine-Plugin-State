@@ -62,6 +62,9 @@ IM::Engine::Plugin::State - Keep track of some state for each user
 
 =head1 DESCRIPTION
 
+This module lets you store some state for each user. Right now the only backend
+is L<IM::Engine::Plugin::State::InMemory> which seriously limits usability. But
+more will come. I just want something with a useful API that I can continue to build up.
 
 =head1 AUTHOR
 

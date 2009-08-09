@@ -64,32 +64,13 @@ __END__
 
 =head1 NAME
 
-IM::Engine::Plugin::State - Keep track of some state for each user
-
-=head1 SYNOPSIS
-
+IM::Engine::Plugin::State::InMemory - Keep state in memory
 
 =head1 DESCRIPTION
 
-
-=head1 AUTHOR
-
-Shawn M Moore, C<sartak@gmail.com>
-
-=head1 SEE ALSO
-
-=over 4
-
-=item L<IM::Engine>
-
-=back
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2009 Shawn M Moore.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This module keeps state in memory, using a hash. It's crude but it supports any
+data structure you can whip up. If your bot doesn't need long-term storage this
+is the backend to use.
 
 =cut
 
