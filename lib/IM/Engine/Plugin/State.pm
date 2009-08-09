@@ -1,8 +1,11 @@
 package IM::Engine::Plugin::State;
 use Moose;
+use MooseX::ABC;
 extends 'IM::Engine::Plugin';
 
 our $VERSION = '0.01';
+
+requires 'get_user_state', 'set_user_state', 'has_user_state', 'clear_user_state';
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
