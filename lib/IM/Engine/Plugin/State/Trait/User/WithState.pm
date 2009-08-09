@@ -16,7 +16,10 @@ for (
     [has_state   => 'has_user_state'],
 ) {
     my ($local, $remote) = @$_;
-    __PACKAGE__->meta->add_method($local => sub { $_[0]->_state_plugin(@_) });
+    __PACKAGE__->meta->add_method($local => sub {
+        my $self = shift;
+        $self->_state_plugin->$remote($self, @_)
+    });
 }
 
 1;
