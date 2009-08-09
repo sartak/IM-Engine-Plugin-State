@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use IM::Engine;
-use Test::More tests => 7;
+use Test::More tests => 12;
 use Test::Exception;
 
 my $user;
@@ -37,3 +37,12 @@ throws_ok {
 throws_ok {
     $user->clear_state;
 } qr/You must provide a key to avoid collisions/;
+
+is_deeply($user->get_state('test'), undef);
+ok(!$user->has_state('test'), 'no test state');
+$user->set_state(test => 'yay');
+is_deeply($user->get_state('test'), 'yay');
+ok($user->has_state('test'), 'now there is test state');
+$user->clear_state('test');
+ok(!$user->has_state('test'), 'no test state any more');
+
