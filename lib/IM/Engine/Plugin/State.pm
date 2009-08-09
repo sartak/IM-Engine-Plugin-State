@@ -2,6 +2,7 @@ package IM::Engine::Plugin::State;
 use Moose;
 use MooseX::ABC;
 extends 'IM::Engine::Plugin';
+with 'IM::Engine::ExtendsObject::User';
 
 our $VERSION = '0.01';
 
@@ -11,6 +12,18 @@ requires (
     'clear_user_state',
     'has_user_state',
 );
+
+sub constructor_arguments {
+    my $self = shift;
+
+    return (_state_plugin => $self);
+}
+
+sub traits {
+    return (
+        'IM::Engine::Plugin::State::Trait::User::WithState',
+    );
+}
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
