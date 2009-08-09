@@ -21,7 +21,7 @@ sub constructor_arguments {
 
 sub traits {
     return (
-        'IM::Engine::Plugin::State::Trait::User::WithState',
+        '+IM::Engine::Plugin::State::Trait::User::WithState',
     );
 }
 
