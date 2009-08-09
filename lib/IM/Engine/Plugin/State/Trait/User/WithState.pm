@@ -2,7 +2,7 @@ package IM::Engine::Plugin::State::Trait::User::WithState;
 use Moose::Role;
 
 has state_plugin => (
-    is       => 'ro',
+    is       => 'bare',
     isa      => 'IM::Engine::Plugin::State',
     required => 1,
     handles  => {
